@@ -26,6 +26,7 @@ var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var startButton = document.getElementById("startQuiz");
 var finished = document.getElementById("finished");
+var scoreEl = document.getElementById("score");
 var timeLeft = 60;
 
 //var highScores = localStorage.setItem("score", score);
@@ -107,6 +108,7 @@ questionFive = {
 ]
 
 var score = 0;
+
 var i = 0
 //sets inputs for first question
 theQuestion.textContent = questionArray[i].question;
@@ -114,9 +116,6 @@ firstAnswer.textContent = questionArray[i].a;
 secondAnswer.textContent = questionArray[i].b;
 thirdAnswer.textContent = questionArray[i].c;
 fourthAnswer.textContent = questionArray[i].d;
-
-
-
 
 
 //hides main page and displays first question when Start Quiz is pressed
@@ -151,11 +150,11 @@ listGroup.addEventListener("click", function(event) {
 
 var buttonText = event.target.textContent
 
-console.log(buttonText);
-
 if (buttonText === questionArray[i].answer) {
 rightWrong.textContent = "Correct!";
+score++
 } else { rightWrong.textContent = "wrong!";
+          timeLeft = timeLeft - 10;
 
 
 }
@@ -180,8 +179,10 @@ var nextQuestion = function() {
   
     question.classList.add("hide");
     finished.classList.remove("hide");
-    }
-
-
+    
+    scoreEl.textContent = "Your Score is: " + score + " out of 5";
   }
+}
+
+
 
