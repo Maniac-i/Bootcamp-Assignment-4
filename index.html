@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+  <div class="container">
+    
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">View High Scores</a>
+      </li>
+        <span class="navbar-text time">
+          
+        </span>
+      </ul>
+      
+    
+    </ul>
+    
+    <div class="jumbotron w-50 m-auto quiz" id="quiz">
+      <h1 class="display-4">Code Quiz!</h1>
+      <p class="lead">This quiz will test your javascript knowledge! Click below to begin!</p>
+      <hr class="my-4">
+      <a class="btn btn-primary btn-lg" href="#" role="button" id="startQuiz">Start Quiz</a>
+    </div>
+  
+    <div class="w-50 m-auto hide" id="question">
+      <h2 id="theQuestion"></h2>
+    <ul class="list-group">
+      <li class="list-group-item"><button class="a"></button></li>
+      <li class="list-group-item"><button class="b"></button></li>
+      <li class="list-group-item"><button class="c"></button></li>
+      <li class="list-group-item"><button class="d"></button></li>
+    </ul>
+
+  <h3 id="rightWrong"></h3>
+  </div>
+
+  <div class="jumbotron w-50 m-auto quiz hide" id="quiz">
+    <h1 class="display-4">FINISHED!</h1>
+    <h2 class="lead">Your Score is:</h2>
+    <hr class="my-4">
+    <form class="form-inline">
+      <div class="form-group mb-2">
+        <label for="staticEmail2" class="sr-only">Initials</label>
+        <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Enter Initials:">
+      </div>
+      <div class="form-group mx-sm mb-2">
+        <label for="inputPassword2" class="sr-only">Initials</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Initials">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2">Submit Score</button>
+    </form>
+  </div>
+
+
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
