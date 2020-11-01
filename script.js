@@ -27,6 +27,7 @@ var question = document.getElementById("question");
 var startButton = document.getElementById("startQuiz");
 var finished = document.getElementById("finished");
 var scoreEl = document.getElementById("score");
+var submit = document.getElementById("submit");
 var timeLeft = 60;
 
 //var highScores = localStorage.setItem("score", score);
@@ -185,4 +186,15 @@ var nextQuestion = function() {
 }
 
 
+//stores users initials and score 
+submit.addEventListener("click",function(event) {
+
+event.preventDefault();
+
+var initials = document.getElementById("inputPassword2").value;
+
+  localStorage.setItem("score", score);
+  localStorage.setItem("initials", initials);
+
+})
 
