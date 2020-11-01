@@ -25,6 +25,7 @@ var listGroup = document.querySelector(".list-group");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var startButton = document.getElementById("startQuiz");
+var finished = document.getElementById("finished");
 var timeLeft = 60;
 
 //var highScores = localStorage.setItem("score", score);
@@ -33,13 +34,13 @@ var questionArray = [
 
 questionOne = {
 
-  question: "What do you use to declare a variable?",
+  question: "What is used to declare a variable?",
 
   a: "var",
 
-  b: "hmm",
+  b: "variable",
 
-  c: "yup",
+  c: "string",
 
   d: "idk",
 
@@ -49,59 +50,59 @@ questionOne = {
 },
 questionTwo = {
 
-  question: "What is scope?",
+  question: "In JS, what is a block of code called that is used to perform a speciic task?",
 
-  a: "It's this",
+  a: "Boolean",
 
-  b: "It's that",
+  b: "Function",
 
-  c: "It's everything",
+  c: "Variable",
 
-  d: "IDK",
+  d: "String",
 
-  answer: "IDK"
+  answer: "Function"
 },
 questionThree = {
 
-  question: "",
+  question: "In JS, what element is used to store multiple values in a single variable?",
 
-  a: "",
+  a: "String",
 
-  b: "",
+  b: "Boolean",
 
-  c: "",
+  c: "Function",
 
-  d: "",
+  d: "Array",
 
-  answer: ""
+  answer: "Array"
 },
 questionFour = {
 
-  question: "",
+  question: "The link elements go inside which HTML section?",
 
-  a: "",
+  a: "Body",
 
-  b: "",
+  b: "Footer",
 
-  c: "",
+  c: "Head",
 
-  d: "",
+  d: "Div",
 
-  answer: ""
+  answer: "Head"
 },
 questionFive = {
 
-  question: "",
+  question: "What tag is used to define a list item?",
 
-  a: "",
+  a: "ul",
 
-  b: "",
+  b: "li",
 
-  c: "",
+  c: "ol",
 
-  d: "",
+  d: "b",
 
-  answer: ""
+  answer: "li"
 },
 ]
 
@@ -125,17 +126,18 @@ startButton.addEventListener("click", function() {
   
   quiz.classList.add("hide");
   question.classList.remove("hide");
-  timeDisplay.textContent = "Time: ";
+  timeDisplay.textContent = "Time: " + timeLeft;
 
   var timeInterval = setInterval(function() {
   
     // do something
-    timeDisplay.textContent = "Time: " + timeLeft;
     timeLeft--;
+    timeDisplay.textContent = "Time: " + timeLeft;
   
   if (timeLeft === 0) {
-    alert("finished");
-    timeDisplay.textContent = "Time: "
+    finished.classList.remove("hide");
+    question.classList.add("hide");
+    timeDisplay.textContent = "Time: 0"
     clearInterval(timeInterval);
     }
   }, 1000);
@@ -167,16 +169,19 @@ var nextQuestion = function() {
   i++;
 
   //hides question section after last question --- NEED TO CHANGE TO FOR LOOP
-  if (i >= questionArray.length) {
-    question.classList.add("hide");
+  if (i < questionArray.length) {
+  theQuestion.textContent = questionArray[i].question;
+  firstAnswer.textContent = questionArray[i].a;
+  secondAnswer.textContent = questionArray[i].b;
+  thirdAnswer.textContent = questionArray[i].c;
+  fourthAnswer.textContent = questionArray[i].d;
 
+  } else {
+  
+    question.classList.add("hide");
+    finished.classList.remove("hide");
     }
 
-theQuestion.textContent = questionArray[i].question;
-firstAnswer.textContent = questionArray[i].a;
-secondAnswer.textContent = questionArray[i].b;
-thirdAnswer.textContent = questionArray[i].c;
-fourthAnswer.textContent = questionArray[i].d;
 
+  }
 
-}
