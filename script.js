@@ -28,6 +28,8 @@ var startButton = document.getElementById("startQuiz");
 var finished = document.getElementById("finished");
 var scoreEl = document.getElementById("score");
 var submit = document.getElementById("submit");
+var highScores = document.getElementById("highScores");
+var highScoreSection = document.getElementById("highScoreSection");
 var timeLeft = 60;
 
 //var highScores = localStorage.setItem("score", score);
@@ -181,6 +183,7 @@ var nextQuestion = function() {
     question.classList.add("hide");
     finished.classList.remove("hide");
     
+    
     scoreEl.textContent = "Your Score is: " + score + " out of 5";
   }
 }
@@ -196,5 +199,22 @@ var initials = document.getElementById("inputPassword2").value;
   localStorage.setItem("score", score);
   localStorage.setItem("initials", initials);
 
+  createListItem();
+  
+
 })
 
+function createListItem() {
+
+highScoreSection.classList.remove("hide");
+finished.classList.add("hide");
+
+var user = localStorage.getItem("initials");
+var userScore = localStorage.getItem("score");
+
+listItem = document.createElement("li");
+listItem.textContent = user + ": " + userScore;
+highScores.appendChild(listItem);
+
+
+}
