@@ -31,7 +31,7 @@ var submit = document.getElementById("submit");
 var highScores = document.getElementById("highScores");
 var highScoreSection = document.getElementById("highScoreSection");
 var timeLeft = 60;
-
+var toggle;
 //var highScores = localStorage.setItem("score", score);
 //localStorage.getItem(score);
 var questionArray = [
@@ -132,16 +132,19 @@ startButton.addEventListener("click", function() {
 
   var timeInterval = setInterval(function() {
   
-    // do something
     timeLeft--;
     timeDisplay.textContent = "Time: " + timeLeft;
   
   if (timeLeft === 0) {
-    finished.classList.remove("hide");
-    question.classList.add("hide");
     timeDisplay.textContent = "Time: 0"
     clearInterval(timeInterval);
+
+    if (toggle !== "over") {
+    finished.classList.remove("hide");
+    question.classList.add("hide");
     }
+  }
+
   }, 1000);
 
 });
@@ -179,7 +182,7 @@ var nextQuestion = function() {
   fourthAnswer.textContent = questionArray[i].d;
 
   } else {
-  
+    toggle = "over";
     question.classList.add("hide");
     finished.classList.remove("hide");
     
@@ -204,6 +207,7 @@ var initials = document.getElementById("inputPassword2").value;
 
 })
 
+//creates list item with score and appends to highscore list
 function createListItem() {
 
 highScoreSection.classList.remove("hide");
