@@ -30,120 +30,126 @@ var scoreEl = document.getElementById("score");
 var submit = document.getElementById("submit");
 var highScores = document.getElementById("highScores");
 var highScoreSection = document.getElementById("highScoreSection");
+var goBack = document.getElementById("goBack");
 var timeLeft = 60;
+var score = 0;
+var i = 0
 var toggle;
+
+
 //var highScores = localStorage.setItem("score", score);
 //localStorage.getItem(score);
 var questionArray = [
 
-questionOne = {
+  questionOne = {
 
-  question: "What is used to declare a variable?",
+    question: "What is used to declare a variable?",
 
-  a: "var",
+    a: "var",
 
-  b: "variable",
+    b: "variable",
 
-  c: "string",
+    c: "string",
 
-  d: "idk",
+    d: "idk",
 
-  answer: "var"
+    answer: "var"
 
 
-},
-questionTwo = {
+  },
+  questionTwo = {
 
-  question: "In JS, what is a block of code called that is used to perform a speciic task?",
+    question: "In JS, what is a block of code called that is used to perform a speciic task?",
 
-  a: "Boolean",
+    a: "Boolean",
 
-  b: "Function",
+    b: "Function",
 
-  c: "Variable",
+    c: "Variable",
 
-  d: "String",
+    d: "String",
 
-  answer: "Function"
-},
-questionThree = {
+    answer: "Function"
+  },
+  questionThree = {
 
-  question: "In JS, what element is used to store multiple values in a single variable?",
+    question: "In JS, what element is used to store multiple values in a single variable?",
 
-  a: "String",
+    a: "String",
 
-  b: "Boolean",
+    b: "Boolean",
 
-  c: "Function",
+    c: "Function",
 
-  d: "Array",
+    d: "Array",
 
-  answer: "Array"
-},
-questionFour = {
+    answer: "Array"
+  },
+  questionFour = {
 
-  question: "The link elements go inside which HTML section?",
+    question: "The link elements go inside which HTML section?",
 
-  a: "Body",
+    a: "Body",
 
-  b: "Footer",
+    b: "Footer",
 
-  c: "Head",
+    c: "Head",
 
-  d: "Div",
+    d: "Div",
 
-  answer: "Head"
-},
-questionFive = {
+    answer: "Head"
+  },
+  questionFive = {
 
-  question: "What tag is used to define a list item?",
+    question: "What tag is used to define a list item?",
 
-  a: "ul",
+    a: "ul",
 
-  b: "li",
+    b: "li",
 
-  c: "ol",
+    c: "ol",
 
-  d: "b",
+    d: "b",
 
-  answer: "li"
-},
+    answer: "li"
+  },
 ]
 
-var score = 0;
+setFirstQuestion(0);
 
-var i = 0
+function setFirstQuestion(i) {
 //sets inputs for first question
 theQuestion.textContent = questionArray[i].question;
 firstAnswer.textContent = questionArray[i].a;
 secondAnswer.textContent = questionArray[i].b;
 thirdAnswer.textContent = questionArray[i].c;
 fourthAnswer.textContent = questionArray[i].d;
-
+}
 
 //hides main page and displays first question when Start Quiz is pressed
 //starts timer
+var timeInterval;
+startButton.addEventListener("click", function () {
 
-startButton.addEventListener("click", function() {
-  
   quiz.classList.add("hide");
   question.classList.remove("hide");
   timeDisplay.textContent = "Time: " + timeLeft;
 
-  var timeInterval = setInterval(function() {
-  
+  timeInterval = setInterval(function () {
+
     timeLeft--;
     timeDisplay.textContent = "Time: " + timeLeft;
-  
-  if (timeLeft === 0) {
-    timeDisplay.textContent = "Time: 0"
-    clearInterval(timeInterval);
 
-    if (toggle !== "over") {
-    finished.classList.remove("hide");
-    question.classList.add("hide");
+    if (timeLeft === 0) {
+      timeDisplay.textContent = "Time: 0"
+      clearInterval(timeInterval);
+
+      if (toggle !== "over") {
+        finished.classList.remove("hide");
+        question.classList.add("hide");
+        clearInterval(timeInterval);
+      }
     }
-  }
 
   }, 1000);
 
@@ -152,73 +158,88 @@ startButton.addEventListener("click", function() {
 //event delegation to listgroup
 //displays if questions is correct or wrong
 //runs nextQuestion to dynamically display nexts questions text
-listGroup.addEventListener("click", function(event) {
+listGroup.addEventListener("click", function (event) {
 
-var buttonText = event.target.textContent
+  var buttonText = event.target.textContent
 
-if (buttonText === questionArray[i].answer) {
-rightWrong.textContent = "Correct!";
-score++
-} else { rightWrong.textContent = "wrong!";
-          timeLeft = timeLeft - 10;
+  if (buttonText === questionArray[i].answer) {
+    rightWrong.textContent = "Correct!";
+    score++
+  } else {
+    rightWrong.textContent = "wrong!";
+    timeLeft = timeLeft - 10;
 
 
-}
-nextQuestion();
+  }
+  nextQuestion();
 
 });
 
 //Dynamically displays next question text
-var nextQuestion = function() {
+var nextQuestion = function () {
 
   i++;
 
   //hides question section after last question --- NEED TO CHANGE TO FOR LOOP
   if (i < questionArray.length) {
-  theQuestion.textContent = questionArray[i].question;
-  firstAnswer.textContent = questionArray[i].a;
-  secondAnswer.textContent = questionArray[i].b;
-  thirdAnswer.textContent = questionArray[i].c;
-  fourthAnswer.textContent = questionArray[i].d;
+    theQuestion.textContent = questionArray[i].question;
+    firstAnswer.textContent = questionArray[i].a;
+    secondAnswer.textContent = questionArray[i].b;
+    thirdAnswer.textContent = questionArray[i].c;
+    fourthAnswer.textContent = questionArray[i].d;
 
   } else {
     toggle = "over";
     question.classList.add("hide");
     finished.classList.remove("hide");
-    
-    
+
+
     scoreEl.textContent = "Your Score is: " + score + " out of 5";
   }
 }
 
 
 //stores users initials and score 
-submit.addEventListener("click",function(event) {
+submit.addEventListener("click", function (event) {
 
-event.preventDefault();
+  event.preventDefault();
 
-var initials = document.getElementById("inputPassword2").value;
+  var initials = document.getElementById("inputPassword2").value;
 
   localStorage.setItem("score", score);
   localStorage.setItem("initials", initials);
 
   createListItem();
-  
+
 
 })
 
 //creates list item with score and appends to highscore list
 function createListItem() {
 
-highScoreSection.classList.remove("hide");
-finished.classList.add("hide");
+  highScoreSection.classList.remove("hide");
+  finished.classList.add("hide");
 
-var user = localStorage.getItem("initials");
-var userScore = localStorage.getItem("score");
+  var user = localStorage.getItem("initials");
+  var userScore = localStorage.getItem("score");
 
-listItem = document.createElement("li");
-listItem.textContent = user + ": " + userScore;
-highScores.appendChild(listItem);
+  listItem = document.createElement("li");
+  listItem.textContent = user + ": " + userScore;
+  highScores.appendChild(listItem);
 
 
 }
+
+goBack.addEventListener("click", () => {
+  
+  i = 0;
+  timeLeft = 60;
+  score = 0;
+  highScoreSection.classList.add("hide");
+  quiz.classList.remove("hide");
+  clearInterval(timeInterval);
+  setFirstQuestion(0);
+  timeDisplay.textContent = "";
+  rightWrong.textContent = "";
+
+})
