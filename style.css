@@ -1,3 +1,72 @@
 .hide {
   display: none;
 }
+
+
+
+#startQuiz {
+  background-color: lightgray;
+  border-color: lightgray;
+  color: darkslategray;
+}
+
+hr {
+  background-color: lightgray;
+}
+
+
+.list-group-item {
+  background-color: grey;
+}
+
+#buttona {
+  background-color: lightgray;
+  border-color: lightgray;
+  color: darkslategray;
+}
+
+#buttonb {
+  background-color: lightgray;
+  border-color: lightgray;
+  color: darkslategray;
+}
+
+#buttonc {
+  background-color: lightgray;
+  border-color: lightgray;
+  color: darkslategray;
+}
+
+#buttond {
+  background-color: lightgray;
+  border-color: lightgray;
+  color: darkslategray;
+}
+
+h2 {
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+h3 {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+#submit {
+  background-color: lightgray;
+  border-color: lightgray;
+  color: darkslategray;
+}
+
+#goBack {
+  background-color: lightgray;
+  border-color: lightgray;
+  color: darkslategray;
+}
+
+#highScores {
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}

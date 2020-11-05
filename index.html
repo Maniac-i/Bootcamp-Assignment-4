@@ -14,36 +14,36 @@
     
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link active" href="highscores.html">View Highscores</a>
-      </li>
         <span class="navbar-text time">
           
         </span>
+        
+      </li>
       </ul>
       
     
   
     
-    <div class="jumbotron w-50 m-auto quiz" id="quiz">
+    <div class="jumbotron w-50 m-auto bg-secondary" id="quiz">
       <h1 class="display-4">Code Quiz!</h1>
       <p class="lead">This quiz will test your javascript knowledge! Click below to begin!</p>
       <hr class="my-4">
       <a class="btn btn-primary btn-lg" href="#" role="button" id="startQuiz">Start Quiz</a>
     </div>
   
-    <div class="w-50 m-auto hide" id="question">
-      <h2 id="theQuestion"></h2>
-    <ul class="list-group">
-      <li class="list-group-item"><button class="a"></button></li>
-      <li class="list-group-item"><button class="b"></button></li>
-      <li class="list-group-item"><button class="c"></button></li>
-      <li class="list-group-item"><button class="d"></button></li>
+    <div class="w-50 m-auto hide bg-secondary" id="question">
+      <h2 class="text-center" id="theQuestion"></h2>
+    <ul class="list-group" id="questionAnswers">
+      <li class="list-group-item bg-secondary"><button id="buttona" class="a btn-block btn btn-primary btn-md"></button></li>
+      <li class="list-group-item bg-secondary"><button id="buttonb" class="b btn-block btn btn-primary btn-md"></button></li>
+      <li class="list-group-item bg-secondary"><button id="buttonc" class="c btn-block btn btn-primary btn-md"></button></li>
+      <li class="list-group-item bg-secondary"><button id="buttond" class="d btn-block btn btn-primary btn-md"></button></li>
     </ul>
 
   <h3 id="rightWrong"></h3>
   </div>
 
-  <div class="jumbotron w-50 m-auto quiz hide" id="finished">
+  <div class="jumbotron w-50 m-auto quiz hide bg-secondary" id="finished">
     <h1 class="display-4">FINISHED!</h1>
     <h2 class="lead" id="score"></h2>
     <hr class="my-4">
@@ -53,13 +53,13 @@
       </div>
       <div class="form-group mx-sm mb-2">
         <label for="inputPassword2" class="sr-only">Initials</label>
-        <input type="text" class="form-control" id="inputPassword2" placeholder="Initials">
+        <input type="text" class="form-control" id="inputPassword2" placeholder="">
       </div>
       <button type="submit" class="btn btn-primary mb-2" id="submit">Submit Score</button>
     </form>
   </div>
 
-<div class="hide m-auto w-50" id="highScoreSection">
+<div class="hide m-auto w-50 bg-secondary" id="highScoreSection">
   <div class="text-center">
     <h1>High Scores</h1>
     </div>

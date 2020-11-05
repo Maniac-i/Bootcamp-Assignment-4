@@ -118,21 +118,23 @@ var questionArray = [
 setFirstQuestion(0);
 
 function setFirstQuestion(i) {
-//sets inputs for first question
-theQuestion.textContent = questionArray[i].question;
-firstAnswer.textContent = questionArray[i].a;
-secondAnswer.textContent = questionArray[i].b;
-thirdAnswer.textContent = questionArray[i].c;
-fourthAnswer.textContent = questionArray[i].d;
+  //sets inputs for first question
+  theQuestion.textContent = questionArray[i].question;
+  firstAnswer.textContent = questionArray[i].a;
+  secondAnswer.textContent = questionArray[i].b;
+  thirdAnswer.textContent = questionArray[i].c;
+  fourthAnswer.textContent = questionArray[i].d;
 }
 
 //hides main page and displays first question when Start Quiz is pressed
 //starts timer
 var timeInterval;
+
 startButton.addEventListener("click", function () {
 
   quiz.classList.add("hide");
   question.classList.remove("hide");
+
   timeDisplay.textContent = "Time: " + timeLeft;
 
   timeInterval = setInterval(function () {
@@ -182,14 +184,10 @@ var nextQuestion = function () {
 
   //hides question section after last question --- NEED TO CHANGE TO FOR LOOP
   if (i < questionArray.length) {
-    theQuestion.textContent = questionArray[i].question;
-    firstAnswer.textContent = questionArray[i].a;
-    secondAnswer.textContent = questionArray[i].b;
-    thirdAnswer.textContent = questionArray[i].c;
-    fourthAnswer.textContent = questionArray[i].d;
+    setFirstQuestion(i);
 
   } else {
-    toggle = "over";
+    clearInterval(timeInterval);
     question.classList.add("hide");
     finished.classList.remove("hide");
 
@@ -224,19 +222,21 @@ function createListItem() {
   var userScore = localStorage.getItem("score");
 
   listItem = document.createElement("li");
-  listItem.textContent = user + ": " + userScore;
+  listItem.textContent = user + ": " + userScore + " out of 5";
   highScores.appendChild(listItem);
 
 
 }
 
 goBack.addEventListener("click", () => {
-  
+
   i = 0;
   timeLeft = 60;
   score = 0;
+
   highScoreSection.classList.add("hide");
   quiz.classList.remove("hide");
+  
   clearInterval(timeInterval);
   setFirstQuestion(0);
   timeDisplay.textContent = "";
