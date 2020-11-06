@@ -1,82 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <title>Code Quiz</title>
 </head>
+
 <body>
-  
-  
+
+
   <div class="container">
-    
-    <ul class="nav">
-      <li class="nav-item">
-        <span class="navbar-text time">
-          
-        </span>
-        
-      </li>
+
+    <nav>
+      <ul class="nav">
+        <li class="nav-item">
+          <span class="navbar-text time">
+
+          </span>
+
+        </li>
       </ul>
-      
-    
-  
-    
-    <div class="jumbotron w-50 m-auto bg-secondary" id="quiz">
+    </nav>
+
+
+    <!--This is the start page of the Quiz-->
+    <section class="jumbotron w-50 m-auto bg-secondary" id="quiz">
       <h1 class="display-4">Code Quiz!</h1>
       <p class="lead">This quiz will test your javascript knowledge! Click below to begin!</p>
       <hr class="my-4">
       <a class="btn btn-primary btn-lg" href="#" role="button" id="startQuiz">Start Quiz</a>
-    </div>
-  
-    <div class="w-50 m-auto hide bg-secondary" id="question">
+    </section>
+
+    <!--This is where the questions are displayed-->
+    <section class="w-50 m-auto hide bg-secondary" id="question">
       <h2 class="text-center" id="theQuestion"></h2>
-    <ul class="list-group" id="questionAnswers">
-      <li class="list-group-item bg-secondary"><button id="buttona" class="a btn-block btn btn-primary btn-md"></button></li>
-      <li class="list-group-item bg-secondary"><button id="buttonb" class="b btn-block btn btn-primary btn-md"></button></li>
-      <li class="list-group-item bg-secondary"><button id="buttonc" class="c btn-block btn btn-primary btn-md"></button></li>
-      <li class="list-group-item bg-secondary"><button id="buttond" class="d btn-block btn btn-primary btn-md"></button></li>
-    </ul>
+      <ul class="list-group" id="questionAnswers">
+        <li class="list-group-item bg-secondary"><button id="buttona"
+            class="a btn-block btn btn-primary btn-md"></button></li>
+        <li class="list-group-item bg-secondary"><button id="buttonb"
+            class="b btn-block btn btn-primary btn-md"></button></li>
+        <li class="list-group-item bg-secondary"><button id="buttonc"
+            class="c btn-block btn btn-primary btn-md"></button></li>
+        <li class="list-group-item bg-secondary"><button id="buttond"
+            class="d btn-block btn btn-primary btn-md"></button></li>
+      </ul>
 
-  <h3 id="rightWrong"></h3>
-  </div>
+      <!--This is where it displays if the questions was answered correctly-->
+      <h3 id="rightWrong"></h3>
+    </section>
 
-  <div class="jumbotron w-50 m-auto quiz hide bg-secondary" id="finished">
-    <h1 class="display-4">FINISHED!</h1>
-    <h2 class="lead" id="score"></h2>
-    <hr class="my-4">
-    <form class="form-inline">
-      <div class="form-group mb-2">
-        <h4>Enter Initials:</h4>
+    <!--This the End page after all the questiosn are answered or time runs out-->
+    <section class="jumbotron w-50 m-auto quiz hide bg-secondary" id="finished">
+      <h1 class="display-4">FINISHED!</h1>
+      <h2 class="lead" id="score"></h2>
+      <hr class="my-4">
+      <form class="form-inline">
+        <div class="form-group mb-2">
+          <h4>Enter Initials:</h4>
+        </div>
+        <div class="form-group mx-sm mb-2">
+          <label for="inputPassword2" class="sr-only">Initials</label>
+          <input type="text" class="form-control" id="inputPassword2" placeholder="">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" id="submit">Submit Score</button>
+      </form>
+    </section>
+
+    <!--This is where the high scores are displayed-->
+    <section class="hide m-auto w-50 bg-secondary" id="highScoreSection">
+      <div class="text-center">
+        <h1>High Scores</h1>
       </div>
-      <div class="form-group mx-sm mb-2">
-        <label for="inputPassword2" class="sr-only">Initials</label>
-        <input type="text" class="form-control" id="inputPassword2" placeholder="">
-      </div>
-      <button type="submit" class="btn btn-primary mb-2" id="submit">Submit Score</button>
-    </form>
-  </div>
+      <hr>
+      <ul class="list-group list-unstyled text-center" id="highScores">
 
-<div class="hide m-auto w-50 bg-secondary" id="highScoreSection">
-  <div class="text-center">
-    <h1>High Scores</h1>
-    </div>
-    <hr>
-    <ul class="list-group list-unstyled text-center" id="highScores">
-     
-    </ul>
-    <br>
-    <div class="m-auto text-center">
-      <button type="submit" class="btn btn-primary mb-2" id="goBack">Go Back</button>
-    </div>
-</div>
+      </ul>
+      <br>
+      <div class="m-auto text-center">
+        <button type="submit" class="btn btn-primary mb-2" id="goBack">Go Back</button>
+      </div>
+    </section>
 
   </div>
 
   <script src="script.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
