@@ -105,7 +105,7 @@ setFirstQuestion(0);
 
 //Function that sets the question and answers being displayed
 function setFirstQuestion(i) {
- 
+
   theQuestion.textContent = questionArray[i].question;
   firstAnswer.textContent = questionArray[i].a;
   secondAnswer.textContent = questionArray[i].b;
@@ -188,7 +188,7 @@ var nextQuestion = function () {
   if (i < questionArray.length) {
 
     setFirstQuestion(i);
-    
+
   } else {
 
     //hides question section and displays finished sectionafter last question is answered
