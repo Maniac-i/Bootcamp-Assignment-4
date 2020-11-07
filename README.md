@@ -20,4 +20,8 @@ GIVEN I am taking a code quiz
 - WHEN the game is over
   - THEN I can save my initials and score
   
+  <br>
+  An example of the final project is below.
+  <br>
   
+  ![](https://github.com/Maniac-i/Bootcamp-Assignment-4/blob/main/Assets/04-web-apis-homework-demo.gif?raw=true)
